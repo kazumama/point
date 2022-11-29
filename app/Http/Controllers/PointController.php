@@ -7,5 +7,8 @@ use App\Model\Point;
 
 class PointController extends Controller
 {
-    //
+ /*public function index(Point $point)
+ {
+     return $point->get();
+ }*/
 }
