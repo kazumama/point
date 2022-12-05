@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <form action="/posts" method="POST">
+        <form action="/cards" method="POST">
             @csrf
             <div>
                 <h2>カード選択</h2>
