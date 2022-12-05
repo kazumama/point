@@ -11,6 +11,10 @@ class Point extends Model
     use SoftDeletes;
     use HasFactory;
     
+    protected $fillable = [
+        'point_charge',
+    ];
+    
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -16,15 +16,15 @@ class PointSeeder extends Seeder
      */
     public function run()
     {
-        /*DB::table('points')->insert([
+      /*  DB::table('points')->insert([
             'user_id' => 1,
             'card_id' => 1,
             'point_charge' =>'1',
             'point_expiration' => '2022/12/3',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            ]);
-            */
+            ]);*/
+            
             
     }
 }

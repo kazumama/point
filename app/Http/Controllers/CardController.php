@@ -29,6 +29,6 @@ class CardController extends Controller
      {
          $input = $request['card'];
          $card->fill($input)->save();
-         return redirect('/cards/' . $card->id);
+         return redirect('/');
      }
 }

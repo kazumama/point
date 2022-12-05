@@ -24,7 +24,7 @@ class CardSeeder extends Seeder
             'updated_at' => new DateTime(),
             ]);
             
-             DB::table('cards')->insert([
+        DB::table('cards')->insert([
             'name' => 'ponta',
             'image_path' => 'ponta',
             'barcode_path' => 'ponta',
