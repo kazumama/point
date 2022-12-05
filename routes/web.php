@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function(){
     
     });
      Route::get('/',[CardController::class,'index']);
+     Route::get('/cards/{card}',[CardController::class,'show']);
 
 
 require __DIR__.'/auth.php';

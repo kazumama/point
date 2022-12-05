@@ -18,12 +18,16 @@ class CardSeeder extends Seeder
     {
         DB::table('cards')->insert([
             'name' => 'rakuten',
+            'image_path' => 'rakuten',
+            'barcode_path' => 'rakuten',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
             
              DB::table('cards')->insert([
             'name' => 'ponta',
+            'image_path' => 'ponta',
+            'barcode_path' => 'ponta',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);

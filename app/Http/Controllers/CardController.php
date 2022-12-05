@@ -11,11 +11,12 @@ class CardController extends Controller
 {
      public function index(Card $card)
      {
+         
          return view('cards/index')->with(['cards'=>$card->get()]);
      }
      
-      public function create(Card $card)
+      public function show(Card $card)
      {
-         return view('cards/index')->with(['cards'=>$card->get()]);
+         return view('cards/show')->with(['cards'=>$card->get()]);
      }
 }
