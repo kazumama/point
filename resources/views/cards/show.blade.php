@@ -8,15 +8,16 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-       <h1>
+        <h1>
             {{ $card->image_path }}
         </h1>
         <h2>
                 {{ $card->barcode_path }}    
-            </h2>
+        </h2>
         <div>
-            {{ $card->barcode_path }}
+            {{ $card->name }}
         </div>
+        <a href='/points/charge'>ポイントの追加</a>
         
         <div class="footer">
             <a href="/">戻る</a>
