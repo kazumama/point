@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <form action="/posts" method="POST">
+        <form action="/points" method="POST">
             @csrf
             <div>
                 <input type="text" point_charge="points[point_charge]" placeholder="0円"/>
