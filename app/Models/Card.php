@@ -11,6 +11,11 @@ class Card extends Model
     use SoftDeletes;
     use HasFactory;
     
+    protected $fillable = [
+        'name',
+        'barcode_path',
+    ];
+    
     public function points()
     {
         return $this->hasMany(Point::class);
