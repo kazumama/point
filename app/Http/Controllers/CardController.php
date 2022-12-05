@@ -15,8 +15,20 @@ class CardController extends Controller
          return view('cards/index')->with(['cards'=>$card->get()]);
      }
      
-      public function show(Card $card)
+     public function create(Card $card)
+     {
+         return view('cards/create')->with(['cards'=>$card->get()]);
+     }
+     
+     public function show(Card $card)
      {
          return view('cards/show')->with(['cards'=>$card->get()]);
+     }
+     
+     public function store(Request $request,Card $card)
+     {
+         $input = $request['card'];
+         $card->fill($input)->save();
+         return redirect('/cards/' . $card->id);
      }
 }

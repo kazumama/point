@@ -9,6 +9,7 @@
     <body>
         <h1>ポイント管理</h1>
         <h2>カード一覧</h2>
+        <a href='/cards/create'>カードの追加</a>
         <div>
             @foreach ($cards as $card)
             <p>
