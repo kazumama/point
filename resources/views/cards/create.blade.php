@@ -17,7 +17,11 @@
                 </select>
             </div>
             <div>
-                <input type="text" barcode_path="card[barcode_path]" placeholder="写真のURLを選択してください"/>
+               <form action="/cloudinary" method="POST" enctype="multipart/form-date">
+                   @csrf
+                   <input type="file" name="barcode_path">
+                   <button>画像をアップロード</button>
+               </form>
             </div>    
             <input type="submit" value="store"/>
         </form>
