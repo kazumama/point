@@ -12,13 +12,12 @@
             {{ $card->image_path }}
         </h1>
         <h2>
-                {{ $card->barcode_path }}    
+            {{ $card->barcode_path }}    
         </h2>
         <div>
             {{ $card->name }}
         </div>
-        <a href='/points/charge'>ポイントの追加</a>
-        
+            <a href='/points/charge'>ポイントの追加</a>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
