@@ -2,10 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>Cardcreate</title>
     </head>
     <body>
-        <h1>Blog Name</h1>
+        <h1>カードの追加</h1>
         <form action="/cards" method="POST">
             @csrf
             <div>

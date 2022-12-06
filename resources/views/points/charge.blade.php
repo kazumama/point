@@ -2,10 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>charge</title>
     </head>
     <body>
-        <h1>Blog Name</h1>
         <form action="/points" method="POST">
             @csrf
             <div>
