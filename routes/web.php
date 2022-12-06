@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\PointController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function(){
      Route::get('/cards/create', [CardController::class, 'create']);
      Route::get('/cards/{card}',[CardController::class,'show']);
      Route::post('/cards', [CardController::class, 'store']);
+     Route::get('/points/charge',[PointController::class,'charge']);
 
 
 require __DIR__.'/auth.php';
