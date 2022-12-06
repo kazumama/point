@@ -31,6 +31,22 @@ class CardSeeder extends Seeder
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
+        
+        DB::table('cards')->insert([
+            'name' => 'merupei',
+            'image_path' => 'merupei',
+            'barcode_path' => 'merupei',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+        
+        DB::table('cards')->insert([
+            'name' => 'paypay',
+            'image_path' => 'paypay',
+            'barcode_path' => 'paypay',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
        
        
     }

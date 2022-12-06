@@ -8,10 +8,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1 class="title">
-            {{ $card->name }}
+        <h1>
+            {{ $card->image_path }}
         </h1>
-        <h2 class="title">
+        <h2>
             {{ $card->barcode_path }}    
         </h2>
         <div>
