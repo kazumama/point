@@ -21,7 +21,7 @@ class CardController extends Controller
      
      public function show(Card $card)
      {
-         return view('cards/show')->with(['cards'=>$card->get()]);
+         return view('cards/show')->with(['card'=>$card]);
      }
      
      public function store(Request $request,Card $card)
