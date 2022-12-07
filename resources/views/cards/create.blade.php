@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>カードの追加</h1>
-        <form action="/cards" method="POST">
+        <form action="/cards" method="POST" enctype="multipart/form-date">
             @csrf
             <div>
                 <h2>カード選択</h2>
@@ -17,11 +17,10 @@
                 </select>
             </div>
             <div>
-               <form action="/cloudinary" method="POST" enctype="multipart/form-date">
-                   @csrf
+               
                    <input type="file" name="barcode_path">
                    <button>画像をアップロード</button>
-               </form>
+               
             </div>    
             <input type="submit" value="store"/>
         </form>

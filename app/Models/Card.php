@@ -13,7 +13,6 @@ class Card extends Model
     
     protected $fillable = [
         'name',
-        'barcode_path',
     ];
     
     public function points()
@@ -24,5 +23,10 @@ class Card extends Model
     public function shops()
     {
         return $this->belongsToMany('App\Shop');
+    }
+    
+    public function barcodes()
+    {
+        return $this->hasMany(Barcode::class);
     }
 }
