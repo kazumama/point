@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Point::class);
     }
+    
+    public function barcodes()
+    {
+        return $this->hasMany(Barcode::class);
+    }
 }

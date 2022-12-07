@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cards', function (Blueprint $table) {
+        Schema::create('barcodes', function (Blueprint $table) {
             $table->id();
-            $table->string('name',50);
-            $table->string('image_path')->nullable();
-            $table->timestamps();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('card_id')->constrained();
+            $table->string('barcode_path')->nullable();
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cards');
+        Schema::dropIfExists('barcodes');
     }
 };

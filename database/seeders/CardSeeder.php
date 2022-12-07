@@ -19,7 +19,6 @@ class CardSeeder extends Seeder
         DB::table('cards')->insert([
             'name' => 'rakuten',
             'image_path' => 'rakuten',
-            'barcode_path' => 'rakuten',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -27,7 +26,6 @@ class CardSeeder extends Seeder
         DB::table('cards')->insert([
             'name' => 'ponta',
             'image_path' => 'ponta',
-            'barcode_path' => 'ponta',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -35,7 +33,6 @@ class CardSeeder extends Seeder
         DB::table('cards')->insert([
             'name' => 'merupei',
             'image_path' => 'merupei',
-            'barcode_path' => 'merupei',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -43,7 +40,6 @@ class CardSeeder extends Seeder
         DB::table('cards')->insert([
             'name' => 'paypay',
             'image_path' => 'paypay',
-            'barcode_path' => 'paypay',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
