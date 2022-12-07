@@ -11,6 +11,9 @@ class Barcode extends Model
     use HasFactory;
     use SoftDeletes;
     
+    protected $fillable = [
+        'barcode_path',
+    ];
     
     public function user()
     {

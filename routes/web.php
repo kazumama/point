@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\PointController;
+use App\Http\Controllers\BarcodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,10 @@ Route::middleware('auth')->group(function(){
     });
      Route::get('/',[CardController::class,'index']);
      Route::get('/cards/create', [CardController::class, 'create']);
+     Route::get('/cards/create',[BarcodeController::class,'create']);
      Route::get('/cards/{card}',[CardController::class,'show']);
      Route::post('/cards', [CardController::class, 'store']);
+     Route::post('/cards', [BarcodeController::class, 'store']);
      Route::get('/points/charge',[PointController::class,'charge']);
 
 

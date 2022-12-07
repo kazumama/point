@@ -9,8 +9,16 @@ use Cloudinary;
 
 class BarcodeController extends Controller
 {
+    
+    
     public function create(Barcode $barcode)
     {
         return view('cards/create')->with(['barcode'=>$barcode->get()]);
     }
+    public function store(Request $request,Barcode $barcode)
+     {
+         
+         $image_url = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
+         return redirect('/');
+     }
 }
