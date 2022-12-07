@@ -28,7 +28,6 @@ class CardController extends Controller
      {
          $input = $request['card'];
          $card->fill($input)->save();
-         $image_url = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
          return redirect('/');
      }
 }
