@@ -38,5 +38,6 @@ Route::middleware('auth')->group(function(){
      Route::post('/cards', [CardController::class, 'store']);
      Route::get('/points/charge',[PointController::class,'charge']);
 
+     Route::get('/cards/cardcreate',[CardController::class, 'cardcreate']);
 
 require __DIR__.'/auth.php';
