@@ -14,6 +14,9 @@
             @foreach ($cards as $card)
             <p>
                 <a href="/cards/{{$card->id}}">{{$card->name}}</a>
+                @foreach($card->points as $point)
+                    {{ $point->point_charge}}
+                @endforeach    
             </p>
             @endforeach
         </div>

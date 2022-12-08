@@ -17,10 +17,7 @@
                 </select>
             </div>
             <div>
-               
                    <input type="file" name="barcode_path">
-                   <button>画像をアップロード</button>
-               
             </div>    
             <input type="submit" value="store"/>
         </form>
