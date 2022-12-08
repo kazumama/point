@@ -6,11 +6,11 @@
     </head>
     <body>
         <h1>カードの追加</h1>
-        <form action="/cards" method="POST" enctype="multipart/form-date">
+        <form action="/cards" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
                 <h2>カード選択</h2>
-                <select name="card[card_id]">
+                <select name="barcode[card_id]">
                     @foreach($cards as $card)
                         <option value="{{ $card->id }}">{{ $card->name }}</option>
                     @endforeach
