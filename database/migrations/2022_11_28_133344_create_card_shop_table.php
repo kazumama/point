@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('card_shop', function (Blueprint $table) {
-            $table->id();
             $table->foreignId('card_id')->constrained();
             $table->foreignId('shop_id')->constrained();
             $table->timestamps();
