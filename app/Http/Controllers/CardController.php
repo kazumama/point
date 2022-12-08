@@ -21,6 +21,11 @@ class CardController extends Controller
          return view('cards/create')->with(['cards'=>$card->get(),'barcode'=>$barcode->get()]);
      }
      
+     public function cardcreate(Card $card)
+     {
+         return view('cards/cardcreate')->with(['card'=>$card->get()]);
+     }
+     
      public function show(Card $card)
      {
          return view('cards/show')->with(['card'=>$card]);
