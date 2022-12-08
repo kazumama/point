@@ -49,5 +49,22 @@ class PointSeeder extends Seeder
             'updated_at' => new DateTime(),
             ]);
             
+         DB::table('points')->insert([
+            'user_id' => 1,
+            'card_id' => 2,
+            'point_charge' =>'1',
+            'point_expiration' => '2022/12/3',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+         DB::table('points')->insert([
+            'user_id' => 1,
+            'card_id' => 2,
+            'point_charge' =>'3',
+            'point_expiration' => '2022/12/3',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            ]);
+            
     }
 }

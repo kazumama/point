@@ -33,10 +33,11 @@ class CardController extends Controller
      
      public function store(Request $request,Card $card,Barcode $barcode)
      {
-          //$input = $request['card'];
-          //$card->fill($input)->save();
-          $image_url = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
-          dd($image_url);
+          
+          $input = $request['barcode'];
+          $barcode['user_id'] = Auth::id();
+          $barcode['barcode_path'] = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
+          $barcode->fill($input)->save();
          return redirect('/');
      }
 }

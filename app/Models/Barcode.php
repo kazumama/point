@@ -12,6 +12,7 @@ class Barcode extends Model
     use SoftDeletes;
     
     protected $fillable = [
+        'card_id',
         'barcode_path',
     ];
     
