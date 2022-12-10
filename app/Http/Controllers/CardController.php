@@ -31,13 +31,21 @@ class CardController extends Controller
          return view('cards/show')->with(['card'=>$card]);
      }
      
-     public function store(Request $request,Card $card,Barcode $barcode)
+     public function store(Request $request,Barcode $barcode)
      {
-          
           $input = $request['barcode'];
           $barcode['user_id'] = Auth::id();
           $barcode['barcode_path'] = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
           $barcode->fill($input)->save();
+         return redirect('/');
+     }
+     
+      public function cardstore(Request $request,Card $card)
+     {
+          dd($card);
+          $input = $request['card'];
+          $card['image_path'] = Cloudinary::upload($request->file('image_path')->getRealPath())->getSecurePath();
+          $card->fill($input)->save();
          return redirect('/');
      }
 }

@@ -14,7 +14,7 @@
             <div>
                    <input type="file" name="image_path">
             </div>    
-            <input type="submit" value="store"/>
+            <input type="submit" value="cardstore"/>
         </form>
         <div class="footer">
             <a href="/">戻る</a>
