@@ -11,9 +11,10 @@ use Cloudinary;
 
 class CardController extends Controller
 {
-     public function index(Card $card,Point $point)
+     public function index(Card $card)
      {
-         return view('cards/index')->with(['cards'=>$card->get(),'point'=>$point->get()]);
+        $points = Point::withCount('point_charge')->get();
+        return view('cards/index')->with(['cards'=>$card->get()]);
      }
      
      public function create(Card $card,Barcode $barcode)
