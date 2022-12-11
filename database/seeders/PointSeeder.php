@@ -17,7 +17,7 @@ class PointSeeder extends Seeder
     public function run()
     {
          DB::table('points')->insert([
-            'user_id' => 1,
+            'user_id' => 2,
             'card_id' => 1,
             'point_charge' =>'2',
             'point_expiration' => new DateTime(),
@@ -25,7 +25,7 @@ class PointSeeder extends Seeder
             'updated_at' => new DateTime(),
             ]);
         DB::table('points')->insert([
-            'user_id' => 1,
+            'user_id' => 2,
             'card_id' => 1,
             'point_charge' =>'1',
             'point_expiration' => new DateTime(),
@@ -33,7 +33,7 @@ class PointSeeder extends Seeder
             'updated_at' => new DateTime(),
             ]);
          DB::table('points')->insert([
-            'user_id' => 1,
+            'user_id' => 2,
             'card_id' => 1,
             'point_charge' =>'4',
             'point_expiration' => new DateTime(),
@@ -41,7 +41,7 @@ class PointSeeder extends Seeder
             'updated_at' => new DateTime(),
             ]);
          DB::table('points')->insert([
-            'user_id' => 1,
+            'user_id' => 2,
             'card_id' => 1,
             'point_charge' =>'1',
             'point_expiration' => new DateTime(),
@@ -50,7 +50,7 @@ class PointSeeder extends Seeder
             ]);
             
          DB::table('points')->insert([
-            'user_id' => 1,
+            'user_id' => 2,
             'card_id' => 2,
             'point_charge' =>'1',
             'point_expiration' => new DateTime(),
@@ -58,7 +58,7 @@ class PointSeeder extends Seeder
             'updated_at' => new DateTime(),
             ]);
          DB::table('points')->insert([
-            'user_id' => 1,
+            'user_id' => 2,
             'card_id' => 3,
             'point_charge' =>'3',
             'point_expiration' => new DateTime(),
