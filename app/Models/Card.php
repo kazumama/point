@@ -13,6 +13,7 @@ class Card extends Model
     
     protected $fillable = [
         'name',
+        'image_path',
     ];
     
     public function points()

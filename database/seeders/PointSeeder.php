@@ -59,7 +59,7 @@ class PointSeeder extends Seeder
             ]);
          DB::table('points')->insert([
             'user_id' => 1,
-            'card_id' => 2,
+            'card_id' => 3,
             'point_charge' =>'3',
             'point_expiration' => new DateTime(),
             'created_at' => new DateTime(),

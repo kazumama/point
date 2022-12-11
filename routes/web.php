@@ -30,15 +30,16 @@ Route::middleware('auth')->group(function(){
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    
-    });
-     Route::get('/',[CardController::class,'index']);
+     Route::get('/index',[CardController::class,'index']);
      Route::get('/cards/cardcreate',[CardController::class, 'cardcreate']);
      Route::get('/cards/create',[CardController::class, 'create']);
      Route::get('/cards/{card}',[CardController::class,'show']);
-     Route::post('/cards', [CardController::class, 'store']);
+     Route::post('/cards', [BarcodeController::class, 'store']);
+     Route::post('/points', [PointController::class, 'pointcharge']);
      Route::get('/points/charge',[PointController::class,'charge']);
 
-     Route::post('/cards', [CardController::class, 'cardstore']);
+     Route::post('/cardadd', [CardController::class, 'cardstore']);
+    
+    });
 
 require __DIR__.'/auth.php';

@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Point;
+use App\Models\Card;
 use Illuminate\Support\Facades\Auth;
 
 class PointController extends Controller
 {
-    public function index(Point $point)
+    public function charge(Point $point,Card $card)
     {
-        return view('cards/index');
+        return view('points/charge')->with(['point'=>$point->get(),'cards'=>$card->get()]);
     }
     
-    public function charge(Point $point)
+    public function pointcharge(Point $point,Request $request)
     {
-        return view('points/charge')->with(['point'=>$point->get()]);
+          $input = $request['point'];
+          $point['user_id'] = Auth::id();
+          $point->fill($input)->save();
+          
+         return redirect('/index');
     }
 }

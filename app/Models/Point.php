@@ -12,6 +12,7 @@ class Point extends Model
     use HasFactory;
     
     protected $fillable = [
+        'card_id',
         'point_charge',
     ];
     

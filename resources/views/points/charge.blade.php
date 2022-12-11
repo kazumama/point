@@ -7,13 +7,19 @@
     <body>
         <form action="/points" method="POST">
             @csrf
+            <h2>カード選択</h2>
+                <select name="point[card_id]">
+                    @foreach($cards as $card)
+                        <option value="{{ $card->id }}">{{ $card->name }}</option>
+                    @endforeach
+                </select>
             <div>
-                <input type="text" point_charge="points[point_charge]" placeholder="0円"/>
+                <input type="text" name="point[point_charge]" placeholder="0"/>Point
             </div>    
-            <input type="submit" value="store"/>
+            <input type="submit" value="pointcharge"/>
         </form>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/index">戻る</a>
         </div>
     </body>
 </html>
