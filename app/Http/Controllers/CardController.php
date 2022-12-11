@@ -13,8 +13,9 @@ class CardController extends Controller
 {
      public function index(Card $card)
      {
-        $points = Point::withCount('point_charge')->get();
-        return view('cards/index')->with(['cards'=>$card->get()]);
+        $points = Point::select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
+        return view('cards/index')->with(['cards'=>$points]);
+        
      }
      
      public function create(Card $card,Barcode $barcode)
@@ -32,21 +33,20 @@ class CardController extends Controller
          return view('cards/show')->with(['card'=>$card]);
      }
      
-     public function store(Request $request,Barcode $barcode)
-     {
-          $input = $request['barcode'];
-          $barcode['user_id'] = Auth::id();
-          $barcode['barcode_path'] = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
-          $barcode->fill($input)->save();
-         return redirect('/');
-     }
+     // public function store(Barcode $barcode,Request $request,)
+     // {
+     //      $input = $request['barcode'];
+     //      $barcode['user_id'] = Auth::id();
+     //      $barcode['barcode_path'] = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
+     //      $barcode->fill($input)->save();
+     //    return redirect('/');
+     // }
      
-      public function cardstore(Request $request,Card $card)
+      public function cardstore(Card $card,Request $request)
      {
-          dd($card);
           $input = $request['card'];
           $card['image_path'] = Cloudinary::upload($request->file('image_path')->getRealPath())->getSecurePath();
           $card->fill($input)->save();
-         return redirect('/');
+         return redirect('/cards/cardcreate');
      }
 }

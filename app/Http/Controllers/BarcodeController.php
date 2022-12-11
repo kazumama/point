@@ -15,10 +15,12 @@ class BarcodeController extends Controller
     {
         return view('cards/create')->with(['barcode'=>$barcode->get()]);
     }
-    public function store(Request $request,Barcode $barcode)
+    public function store(Barcode $barcode,Request $request,)
      {
-         
-         $image_url = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
-         return redirect('/');
+          $input = $request['barcode'];
+          $barcode['user_id'] = Auth::id();
+          $barcode['barcode_path'] = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
+          $barcode->fill($input)->save();
+         return redirect('/index');
      }
 }
