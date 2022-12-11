@@ -12,7 +12,7 @@
             <img src="{{ $card->image_path }}" alt="">
         </h1>
         <h2>
-            <img src="{{ $card->barcode->barcode_path }}" alt="">     
+            <img src="{{ $barcode->barcode_path }}" alt="">     
         </h2>
         <div>
             {{ $card->name }} {{$point->charge}}

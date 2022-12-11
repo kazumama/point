@@ -13,8 +13,8 @@
         <div>
             @foreach ($cards as $card)
             <p>
-                <a href="/cards/{{$card->card_id}}">{{$card->card->name}}</a>
-                    {{ $card->charge}} 
+                <a href="/cards/{{$card->id}}">{{$card->name}}</a>
+                    {{ $points->charge}} 
             </p>
             @endforeach
         </div>
