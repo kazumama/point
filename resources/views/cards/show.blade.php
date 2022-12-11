@@ -9,10 +9,10 @@
     </head>
     <body>
         <h1>
-            {{ $card->image_path }}
+            <img src="{{ $card->image_path }}" alt="">
         </h1>
         <h2>
-            {{ $card->barcode_path }}    
+           <img src="{{ $card->barcode->barcode_path }}" alt="">    
         </h2>
         <div>
             {{ $card->name }}
