@@ -30,7 +30,8 @@ class CardController extends Controller
      
      public function show(Card $card)
      {
-         return view('cards/show')->with(['card'=>$card]);
+          $point = Point::select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
+         return view('cards/show')->with(['card'=>$card,'point'=>$point]);
      }
      
      // public function store(Barcode $barcode,Request $request,)
