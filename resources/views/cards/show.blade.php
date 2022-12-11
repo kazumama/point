@@ -12,10 +12,10 @@
             <img src="{{ $card->image_path }}" alt="">
         </h1>
         <h2>
-           <img src="{{ $card->barcode->barcode_path }}" alt="">    
+            <img src="{{ $card->barcode->barcode_path }}" alt="">     
         </h2>
         <div>
-            {{ $card->name }}
+            {{ $card->name }} {{$point->charge}}
         </div>
         <a href='/points/charge'>ポイントの追加</a>
         <div>近くの店を探す</div>
