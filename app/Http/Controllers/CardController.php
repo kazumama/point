@@ -36,20 +36,10 @@ class CardController extends Controller
      public function show(Card $card)
      {
           $barcode = Barcode::where("user_id",Auth::id())->where("card_id",$card->id)->first();
-          
           $point = Point::where("user_id",Auth::id())->where("card_id",$card->id)->selectRaw('SUM(point_charge) as charge')->first();
           
          return view('cards/show')->with(['card'=>$card,'point'=>$point,'barcode'=>$barcode]);
      }
-     
-     // public function store(Barcode $barcode,Request $request,)
-     // {
-     //      $input = $request['barcode'];
-     //      $barcode['user_id'] = Auth::id();
-     //      $barcode['barcode_path'] = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
-     //      $barcode->fill($input)->save();
-     //    return redirect('/');
-     // }
      
       public function cardstore(Card $card,Request $request)
      {

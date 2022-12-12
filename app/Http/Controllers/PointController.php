@@ -18,6 +18,7 @@ class PointController extends Controller
     {
           $input = $request['point'];
           $point['user_id'] = Auth::id();
+          $point['used'] = 0;
           $point->fill($input)->save();
           
          return redirect('/index');

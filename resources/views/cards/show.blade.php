@@ -9,10 +9,14 @@
     </head>
     <body>
         <h1>
+            @isset
             <img src="{{ $card->image_path }}" alt="">
+            @endisset
         </h1>
         <h2>
+            @isset($barcode)
             <img src="{{ $barcode->barcode_path }}" alt="">     
+            @endisset
         </h2>
         <div>
             {{ $card->name }} {{$point->charge}}
