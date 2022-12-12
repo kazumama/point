@@ -13,8 +13,13 @@ class CardController extends Controller
 {
      public function index(Card $card)
      {
-        $points = Point::where("user_id",Auth::id())->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->first();
-        return view('cards/index')->with(['points'=>$points,'cards'=>$card->get()]);
+     //    $points = Point::where("user_id",Auth::id())->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
+     //    $cards = Card::get();
+     //    foreach($cards as $card){
+     //         array_push($points, $card->name);
+     //    }
+     //    dd($points);
+        return view('cards/index')->with(['cards'=>$card->get()]);
         
      }
      
@@ -31,7 +36,7 @@ class CardController extends Controller
      public function show(Card $card)
      {
           $barcode = Barcode::where("user_id",Auth::id())->where("card_id",$card->id)->first();
-          dd($barcode);
+          
           $point = Point::where("user_id",Auth::id())->where("card_id",$card->id)->selectRaw('SUM(point_charge) as charge')->first();
           
          return view('cards/show')->with(['card'=>$card,'point'=>$point,'barcode'=>$barcode]);

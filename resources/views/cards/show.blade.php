@@ -20,7 +20,7 @@
         <a href='/points/charge'>ポイントの追加</a>
         <div>近くの店を探す</div>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/index">戻る</a>
         </div>
     </body>
 </html>

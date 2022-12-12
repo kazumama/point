@@ -11,12 +11,11 @@
         <h2>カード一覧</h2>
         <a href='/cards/create'>カードの追加</a>
         <div>
-            @foreach ($cards as $card)
-            <p>
-                <a href="/cards/{{$card->id}}">{{$card->name}}</a>
-                    {{ $points->charge}} 
-            </p>
-            @endforeach
+            @foreach($cards as $card)
+                <div>
+                    <a href="/cards/{{$card->id}}">{{$card->name}}</a>
+                </div>
+            @endforeach    
         </div>
     </body>
 </html>
