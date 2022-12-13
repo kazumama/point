@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\Point;
 use App\Models\Card;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Barcode;
 
 class PointController extends Controller
 {
-    public function charge(Point $point,Card $card)
+    public function charge(Point $point)
     {
-        return view('points/charge')->with(['point'=>$point->get(),'cards'=>$card->get()]);
+        $card = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
+        return view('points/charge')->with(['point'=>$point->get(),'cards'=>$card]);
     }
     
     public function pointcharge(Point $point,Request $request)
