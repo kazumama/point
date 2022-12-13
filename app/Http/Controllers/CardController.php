@@ -11,15 +11,28 @@ use Cloudinary;
 
 class CardController extends Controller
 {
-     public function index(Card $card)
+     public function index()
      {
-     //    $points = Point::where("user_id",Auth::id())->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
-     //    $cards = Card::get();
+        $points = Point::where("user_id",Auth::id())->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
+        $pointsarray=$points->toArray();
+        $pointsarraynew=[];
+        foreach($pointsarray as $value){
+            
+              $pointsarraynew[$value['card_id']]=$value['charge'];
+            
+        }
+        
+        
+         $card = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
+         
+     //    $count=0;
      //    foreach($cards as $card){
-     //         array_push($points, $card->name);
+     //         $point_card[$card->name]=$pointsarray[$count];
+     //         $count++;
+             
      //    }
-     //    dd($points);
-        return view('cards/index')->with(['cards'=>$card->get()]);
+         
+        return view('cards/index')->with(['cards'=>$card, 'pointsarray'=>$pointsarraynew]);
         
      }
      
