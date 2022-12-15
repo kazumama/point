@@ -12,7 +12,7 @@
                 <input type="text" name="card[name]" value="{{old('card.name')}}"/>
             </div>
             <div>
-                   <input type="file" name="image_path">
+                <input type="file" name="image_path">
             </div>    
             <input type="submit" value="store"/>
         </form>

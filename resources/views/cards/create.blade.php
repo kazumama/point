@@ -17,7 +17,7 @@
                 </select>
             </div>
             <div>
-                   <input type="file" name="barcode_path">
+                <input type="file" name="barcode_path">
             </div>    
             <input type="submit" value="store"/>
         </form>
