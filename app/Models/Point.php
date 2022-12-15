@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Point extends Model
 {
@@ -15,6 +16,9 @@ class Point extends Model
         'card_id',
         'point_charge',
     ];
+        protected $dates =[
+            'point_expiration',
+            ];
     
     public function user()
     {
