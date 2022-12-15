@@ -17,7 +17,7 @@
             @endisset
         </h2>
         <div>
-            {{ $card->name }} {{$point->charge}} {{ $exp->point_expiration->format('Y/m/d') }}
+            {{ $card->name }} {{$point->charge}}P {{ $exp->point_expiration->format('Y/m/d') }}
         </div>
         <a href='/points/charge'>ポイントの追加</a>
         <div>近くの店を探す</div>
