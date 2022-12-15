@@ -8,6 +8,7 @@ use App\Models\Barcode;
 use App\Models\Point;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
+use Carbon\Carbon;
 
 class CardController extends Controller
 {
@@ -49,9 +50,11 @@ class CardController extends Controller
      public function show(Card $card)
      {
           $barcode = Barcode::where("user_id",Auth::id())->where("card_id",$card->id)->first();
+          $exp =  Point::where("user_id",Auth::id())->where("card_id",$card->id)->where("used",0)->first();
+        
           $point = Point::where("user_id",Auth::id())->where("card_id",$card->id)->selectRaw('SUM(point_charge) as charge')->first();
           
-         return view('cards/show')->with(['card'=>$card,'point'=>$point,'barcode'=>$barcode]);
+         return view('cards/show')->with(['card'=>$card,'point'=>$point,'barcode'=>$barcode,'exp'=>$exp]);
      }
      
       public function cardstore(Card $card,Request $request)
