@@ -21,9 +21,7 @@ class CardController extends Controller
             
               $pointsarraynew[$value['card_id']]=$value['charge'];
             
-        }
-        
-        
+        };
          $card = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
          
      //    $count=0;
@@ -50,8 +48,7 @@ class CardController extends Controller
      public function show(Card $card)
      {
           $barcode = Barcode::where("user_id",Auth::id())->where("card_id",$card->id)->first();
-          $exp =  Point::where("user_id",Auth::id())->where("card_id",$card->id)->where("used",0)->first();
-        
+          $exp =  Point::where("user_id",Auth::id())->where("card_id",$card->id)->where("used",0)->orderBy("point_expiration","DESC")->first();
           $point = Point::where("user_id",Auth::id())->where("card_id",$card->id)->selectRaw('SUM(point_charge) as charge')->first();
           
          return view('cards/show')->with(['card'=>$card,'point'=>$point,'barcode'=>$barcode,'exp'=>$exp]);

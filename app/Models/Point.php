@@ -16,9 +16,9 @@ class Point extends Model
         'card_id',
         'point_charge',
     ];
-        protected $dates =[
-            'point_expiration',
-            ];
+    protected $dates =[
+        'point_expiration',
+     ];
     
     public function user()
     {
