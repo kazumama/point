@@ -7,6 +7,7 @@ use App\Models\Point;
 use App\Models\Card;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Barcode;
+use DateTime;
 
 class PointController extends Controller
 {
@@ -21,6 +22,8 @@ class PointController extends Controller
           $input = $request['point'];
           $point['user_id'] = Auth::id();
           $point['used'] = 0;
+          $point['point_expiration'] = new DateTime('now');
+          $point['point_expiration']->modify('+1 years');
           $point->fill($input)->save();
           
          return redirect('/index');
