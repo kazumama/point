@@ -31,8 +31,15 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        
+        $user=\Auth::User();
+        if($user->role_id===0){
+            return redirect('/cards/cardcreate');
+        }else if($user->role_id===1){
+            return redirect('/index');
+        }
+        
+        //return redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

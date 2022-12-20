@@ -8,12 +8,30 @@ use App\Models\Barcode;
 use App\Models\Point;
 use Illuminate\Support\Facades\Auth;
 use Cloudinary;
+use Carbon\Carbon;
 
 class CardController extends Controller
 {
-     public function index(Card $card,Point $point)
+     public function index()
      {
-         return view('cards/index')->with(['cards'=>$card->get(),'point'=>$point->get()]);
+        $points = Point::where("user_id",Auth::id())->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
+        $pointsarray=$points->toArray();
+        $pointsarraynew=[];
+        foreach($pointsarray as $value){
+            
+              $pointsarraynew[$value['card_id']]=$value['charge'];
+            
+        };
+         $cards = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
+         
+         foreach($cards as $card){
+             
+             $card -> point = $points[$card->id];
+             
+         }
+         
+        return view('cards/index')->with(['cards'=>$cards, 'pointsarray'=>$pointsarraynew]);
+        
      }
      
      public function create(Card $card,Barcode $barcode)
@@ -28,24 +46,18 @@ class CardController extends Controller
      
      public function show(Card $card)
      {
-         return view('cards/show')->with(['card'=>$card]);
+          $barcode = Barcode::where("user_id",Auth::id())->where("card_id",$card->id)->first();
+          $exp =  Point::where("user_id",Auth::id())->where("card_id",$card->id)->where("used",0)->orderBy("point_expiration","DESC")->first();
+          $point = Point::where("user_id",Auth::id())->where("card_id",$card->id)->selectRaw('SUM(point_charge) as charge')->first();
+          
+         return view('cards/show')->with(['card'=>$card,'point'=>$point,'barcode'=>$barcode,'exp'=>$exp]);
      }
      
-     public function store(Request $request,Barcode $barcode)
+      public function cardstore(Card $card,Request $request)
      {
-          $input = $request['barcode'];
-          $barcode['user_id'] = Auth::id();
-          $barcode['barcode_path'] = Cloudinary::upload($request->file('barcode_path')->getRealPath())->getSecurePath();
-          $barcode->fill($input)->save();
-         return redirect('/');
-     }
-     
-      public function cardstore(Request $request,Card $card)
-     {
-          dd($card);
           $input = $request['card'];
           $card['image_path'] = Cloudinary::upload($request->file('image_path')->getRealPath())->getSecurePath();
           $card->fill($input)->save();
-         return redirect('/');
+         return redirect('/cards/cardcreate');
      }
 }

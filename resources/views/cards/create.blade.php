@@ -17,12 +17,12 @@
                 </select>
             </div>
             <div>
-                   <input type="file" name="barcode_path">
+                <input type="file" name="barcode_path">
             </div>    
             <input type="submit" value="store"/>
         </form>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/index">戻る</a>
         </div>
     </body>
 </html>

@@ -20,8 +20,17 @@ class UserSeeder extends Seeder
         'name' => 'a',
         'email' => 'kazuma@gmail.com',
         'password' => bcrypt('a'),
+        'role_id' => 0,
         'created_at' => new DateTime(),
         'updated_at' => new DateTime(),
     ]);
+     DB::table('users')->insert([
+        'name' => 'a',
+        'email' => 'ka@g',
+        'password' => bcrypt('a'),
+        'role_id' => 1,
+        'created_at' => new DateTime(),
+        'updated_at' => new DateTime(),
+         ]);
     }
 }

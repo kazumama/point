@@ -9,18 +9,20 @@
     </head>
     <body>
         <h1>
-            {{ $card->image_path }}
+            <img src="{{ $card->image_path }}" alt="">
         </h1>
         <h2>
-            {{ $card->barcode_path }}    
+            @isset($barcode)
+            <img src="{{ $barcode->barcode_path }}" alt="">     
+            @endisset
         </h2>
         <div>
-            {{ $card->name }}
+            {{ $card->name }} {{$point->charge}}P {{ $exp->point_expiration->format('Y/m/d') }}
         </div>
         <a href='/points/charge'>ポイントの追加</a>
-        <div>近くの店を探す</div>
+        <a href='/cards/shop'>近くの店を探す</a>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/index">戻る</a>
         </div>
     </body>
 </html>

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('card_id')->constrained();
-            $table->integer('point_charge');
-            $table->string('point_expiration',50);
-            //$table->boolean('used');
+            $table->integer('point_charge')->nullable();
+            $table->dateTime('point_expiration');
+            $table->boolean('used')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
