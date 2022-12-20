@@ -22,16 +22,15 @@ class CardController extends Controller
               $pointsarraynew[$value['card_id']]=$value['charge'];
             
         };
-         $card = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
+         $cards = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
          
-     //    $count=0;
-     //    foreach($cards as $card){
-     //         $point_card[$card->name]=$pointsarray[$count];
-     //         $count++;
+         foreach($cards as $card){
              
-     //    }
+             $card -> point = $points[$card->id];
+             
+         }
          
-        return view('cards/index')->with(['cards'=>$card, 'pointsarray'=>$pointsarraynew]);
+        return view('cards/index')->with(['cards'=>$cards, 'pointsarray'=>$pointsarraynew]);
         
      }
      

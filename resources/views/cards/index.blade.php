@@ -13,12 +13,10 @@
         <a href='/points/charge'>ポイントの追加</a>
         <div>
             @foreach($cards as $card)
-            @php
-           　　　 $point=$pointsarray[$card->id];
-            @endphp
+            
                 <div>
                     <a href="/cards/{{$card->id}}">{{$card->name}}</a>
-                    {{$point}}
+                    {{$card->point}}
                     
                 </div>
             @endforeach    

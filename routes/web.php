@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function(){
      Route::post('/points', [PointController::class, 'pointcharge']);
      Route::get('/points/charge',[PointController::class,'charge']);
      Route::post('/cardadd', [CardController::class, 'cardstore']);
+     Route::get('cards/shop',[CardController::class,'shop']);
     
     });
 

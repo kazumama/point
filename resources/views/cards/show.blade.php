@@ -20,7 +20,7 @@
             {{ $card->name }} {{$point->charge}}P {{ $exp->point_expiration->format('Y/m/d') }}
         </div>
         <a href='/points/charge'>ポイントの追加</a>
-        <div>近くの店を探す</div>
+        <a href='/cards/shop'>近くの店を探す</a>
         <div class="footer">
             <a href="/index">戻る</a>
         </div>
