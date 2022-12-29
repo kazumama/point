@@ -33,13 +33,13 @@ Route::middleware('auth')->group(function(){
      Route::get('/index',[CardController::class,'index']);
      Route::get('/cards/cardcreate',[CardController::class, 'cardcreate']);
      Route::get('/cards/create',[CardController::class, 'create']);
+     Route::get('/cards/shop',[CardController::class,'shop']);
      Route::get('/cards/{card}',[CardController::class,'show']);
      Route::post('/cards', [BarcodeController::class, 'store']);
      Route::post('/points', [PointController::class, 'pointcharge']);
      Route::get('/points/charge',[PointController::class,'charge']);
      Route::post('/cardadd', [CardController::class, 'cardstore']);
-     Route::get('cards/shop',[CardController::class,'shop']);
-    
+   
     });
 
 require __DIR__.'/auth.php';

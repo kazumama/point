@@ -21,6 +21,7 @@ class PointSeeder extends Seeder
             'card_id' => 1,
             'point_charge' =>'2',
             'point_expiration' => new DateTime(),
+            'used' => 0,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -29,6 +30,7 @@ class PointSeeder extends Seeder
             'card_id' => 1,
             'point_charge' =>'1',
             'point_expiration' => new DateTime(),
+            'used' => 0,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -37,6 +39,7 @@ class PointSeeder extends Seeder
             'card_id' => 1,
             'point_charge' =>'4',
             'point_expiration' => new DateTime(),
+            'used' => 0,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -45,6 +48,7 @@ class PointSeeder extends Seeder
             'card_id' => 1,
             'point_charge' =>'1',
             'point_expiration' => new DateTime(),
+            'used' => 1,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -53,6 +57,7 @@ class PointSeeder extends Seeder
             'user_id' => 2,
             'card_id' => 2,
             'point_charge' =>'1',
+            'used' => 0,
             'point_expiration' => new DateTime(),
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
@@ -62,6 +67,7 @@ class PointSeeder extends Seeder
             'card_id' => 3,
             'point_charge' =>'3',
             'point_expiration' => new DateTime(),
+            'used' => 0,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);
@@ -70,6 +76,7 @@ class PointSeeder extends Seeder
             'card_id' => 4,
             'point_charge' =>'3',
             'point_expiration' => new DateTime(),
+            'used' => 0,
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             ]);

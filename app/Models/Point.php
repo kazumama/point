@@ -12,11 +12,14 @@ class Point extends Model
     use SoftDeletes;
     use HasFactory;
     
-    protected $fillable = [
+    public $fillable = [
+        'user_id',
         'card_id',
         'point_charge',
+        'point_expiration',
+        'used',
     ];
-    protected $dates =[
+    public $dates =[
         'point_expiration',
      ];
     
