@@ -23,7 +23,7 @@ class PointController extends Controller
           $point['user_id'] = Auth::id();
           $point['used'] = 0;
           $point['point_expiration'] = new DateTime('now');
-          $point['point_expiration']->modify('+1 years');
+          $point['point_expiration']=$point['point_expiration']->modify('+1 years');
           $point->fill($input)->save();
           
          return redirect('/index');
