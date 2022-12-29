@@ -15,22 +15,21 @@ class CardController extends Controller
      public function index()
      {
         $points = Point::where("user_id",Auth::id())->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
-        $pointsarray=$points->toArray();
-        $pointsarraynew=[];
-        foreach($pointsarray as $value){
-            
-              $pointsarraynew[$value['card_id']]=$value['charge'];
-            
-        };
          $cards = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
          
          foreach($cards as $card){
+             foreach($points as $point){
+                 if($point->card_id===$card->id){
+                     $card -> point = $point->charge;
+                     break;
+                 }
+             }
              
-             $card -> point = $points[$card->id];
              
          }
+        
          
-        return view('cards/index')->with(['cards'=>$cards, 'pointsarray'=>$pointsarraynew]);
+        return view('cards/index')->with(['cards'=>$cards]);
         
      }
      
@@ -47,7 +46,7 @@ class CardController extends Controller
      public function show(Card $card)
      {
           $barcode = Barcode::where("user_id",Auth::id())->where("card_id",$card->id)->first();
-          $exp =  Point::where("user_id",Auth::id())->where("card_id",$card->id)->where("used",0)->orderBy("point_expiration","DESC")->first();
+          $exp =  Point::where("user_id",Auth::id())->where("card_id",$card->id)->where("used",0)->orderBy("point_expiration","ASC")->first();
           $point = Point::where("user_id",Auth::id())->where("card_id",$card->id)->selectRaw('SUM(point_charge) as charge')->first();
           
          return view('cards/show')->with(['card'=>$card,'point'=>$point,'barcode'=>$barcode,'exp'=>$exp]);
@@ -59,5 +58,11 @@ class CardController extends Controller
           $card['image_path'] = Cloudinary::upload($request->file('image_path')->getRealPath())->getSecurePath();
           $card->fill($input)->save();
          return redirect('/cards/cardcreate');
+     }
+     
+      public function shop(){
+         
+         $api_key = config('app.api_key');
+         return view('cards/shop')->with(['api_key'=>$api_key]);
      }
 }
