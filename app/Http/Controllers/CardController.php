@@ -14,7 +14,7 @@ class CardController extends Controller
 {
      public function index()
      {
-        $points = Point::where("user_id",Auth::id())->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
+        $points = Point::where("user_id",Auth::id())->where("used",0)->select('card_id')->selectRaw('SUM(point_charge) as charge')->groupBy('card_id')->get();
          $cards = Card::whereIn("id",Barcode::where('user_id',Auth::id())->get()->pluck('card_id'))->get();
          
          foreach($cards as $card){
