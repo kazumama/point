@@ -13,9 +13,11 @@ class Point extends Model
     use HasFactory;
     
     public $fillable = [
+        'user_id',
         'card_id',
         'point_charge',
         'point_expiration',
+        'used',
     ];
     public $dates =[
         'point_expiration',
