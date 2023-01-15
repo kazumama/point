@@ -14,11 +14,13 @@
         <div>
             @foreach($cards as $card)
             
-                <div>
-                    <a href="/cards/{{$card->id}}">{{$card->name}}</a>
-                    {{$card->point}}
-                    
-                </div>
+                <div style='border:solid 1px; width: 400px; margin: 0 auto; margin-bottom: 10px;  text-align:center;  padding:20px 0; background-color: #00FF00; '>
+                    <div>
+                        <a href="/cards/{{$card->id}}">{{$card->name}}</a>
+                        {{$card->point}}
+                        
+                    </div>
+                </div>    
             @endforeach    
         </div>
     </body>
